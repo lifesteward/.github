@@ -1,23 +1,23 @@
 # LifeSteward
 
-**家庭智能管家。Smarter Home. Greener Life.**
+**Smarter Home. Greener Life.**
 
-一套跑在家里的系统，用手机统一管理设备、家庭资料、日程、健康、孩子学习和个人健身。数据留在家里，云端模型只拿到当次对话需要的片段。
+A local-first home steward. One deployment serves one household: devices, documents, schedules, health, learning, and fitness, with room to add hardware and agents over time. The phone is the primary client. The software is a general product, not a one-off for a particular home, and is written so it can be open-sourced later.
 
-## 组织里的仓库
+## Repositories in This Organization
 
-| 仓库 | 状态 | 说明 |
+| Repository | Status | Description |
 | --- | --- | --- |
-| [docs](https://github.com/lifesteward/docs) | 进行中 | 方案、计划、协议、决策和品牌母版 |
-| [steward](https://github.com/lifesteward/steward) | 进行中（M0 骨架） | 服务端、网页后台和契约。一个进程里的模块化单体 |
-| [steward-app](https://github.com/lifesteward/steward-app) | 未开始 | 安卓 App。手机是第一交互终端 |
-| [steward-deploy](https://github.com/lifesteward/steward-deploy) | 进行中（M0 模板） | 家里的部署模板。业务和数据不放在公网 |
+| [docs](https://github.com/lifesteward/docs) | Active | Design, plans, protocols, decisions, and the brand kit |
+| [steward](https://github.com/lifesteward/steward) | Active (M0 skeleton) | Server, web admin, and contracts. One modular process, not a set of microservices |
+| [steward-app](https://github.com/lifesteward/steward-app) | Not started | Android app. The phone is the primary client |
+| [steward-deploy](https://github.com/lifesteward/steward-deploy) | Active (M0 templates) | Deployment templates. Application data stays on the household's own hardware |
 
-## 设计原则
+## Design Principles
 
-1. **一个领域模型。** 家庭、成员、空间、设备、资料、记录和事件在全系统只有一种定义。
-2. **四个统一协议。** 终端怎么接入、设备怎么控制、工具怎么调用、事件怎么流转。新硬件和新智能体遵守协议就能加入。
-3. **一个服务端。** 模块化单体：一个进程，内部按模块划清边界，不拆微服务。
-4. **权限在数据层和工具层执行。** 不靠提示词约束模型。
-5. **数据留在家里。** 原件、数据库和索引都在家里。手机在家走局域网，在外经加密隧道访问。
-6. **成熟的第三方产品直接用。** 设备中枢藏在统一协议后面，以后可以替换。
+1. **One domain model.** Household, member, space, device, document, record, and event each have a single definition used everywhere.
+2. **Four protocols.** Terminals, device control, tools, and events. New hardware and new agents join by following the protocols.
+3. **One server.** A modular monolith: one process, with clear module boundaries. Not microservices.
+4. **Permissions are enforced in data and tools.** Not by asking the model to behave.
+5. **Local-first.** Originals, the database, and indexes stay on the household's hardware. A cloud model receives only the fragment needed for the current turn.
+6. **Use mature third-party systems behind adapters.** The device hub can be replaced without rewriting the rest of the system.
